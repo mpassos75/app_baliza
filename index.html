@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<title>Sensor Ultrassônico - Estacionamento</title>
+
+<style>
+  body {
+     margin: 0;
+    font-family: Arial;
+    background: #111;
+    color: white;
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 20px;
+  }
+
+  /* Tela seleção */
+#selecao {
+  padding: 20px;
+}
+
+.carros {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.carro-card {
+  width: 220px;
+  cursor: pointer;
+}
+
+.carro-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Tela sensor */
+#app {
+  display: none;
+}
+/* Tamanho veiculo */
+.container {
+  width: 300px;
+  margin: auto;
+}
+
+.container img {
+  width: 100%;
+}
+
+  .container2 {
+    position: relative;
+    width: 400px;
+    margin: 40px auto;
+  }
+
+  .carro {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  
+
+  .sensor-info {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .barras {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  .esquerda {
+    left: -60px;
+  }
+
+  .direita {
+    right: -60px;
+  }
+
+  .barra {
+    height: 15%;
+    margin: 2px 0;
+    border-radius: 4px;
+    background: #333;
+    transition: 0.3s;
+  }
+
+  .ativa.verde { background: #4CAF50; }
+  .ativa.amarelo { background: #FFC107; }
+  .ativa.vermelho { background: #F44336; }
+
+.button {
+  background-color: hsl(197, 95%, 34%);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+
+.button2:hover {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);}
+
+
+</style>
+</head>
+
+<body>
+
+    <!-- Tela escolha -->
+<div id="selecao">
+  <h2>Escolha seu veículo</h2>
+
+  <div class="carros">
+    <div class="carro-card" onclick="selecionarCarro('car1.png')">
+      <img src="car1.png">
+      <p>Sedan</p>
+    </div>
+
+    <div class="carro-card" onclick="selecionarCarro('car2.png')">
+      <img src="car2.png">
+      <p>SUV</p>
+    </div>
+
+    <div class="carro-card" onclick="selecionarCarro('car3.png')">
+      <img src="car3.png">
+      <p>Esportivo</p>
+    </div>
+  </div>
+</div>
+<h1 style="color: #FFC107; font-weight: bold; font-family:Helvetica;"> SIMULADOR DE ESTACIONAMENTO PARALELO - BALIZA</h1>
+<!-- App sensor -->
+<div id="app">
+ <h1>Assistente de Estacionamento</h1>
+
+  <div class="container2">
+    <img class="carro" id="imgCarro" alt="Carro">
+    <div class="barras esquerda" id="leftBars"></div>
+  <div class="barras direita" id="rightBars"></div>
+  </div>
+
+  
+
+  <div class="sensor-info" id="distancia"></div>
+
+  <button onclick="trocarCarro()" class="button button2">Selecione Veículo</button>
+</div>
+
+
+
+
+
+
+
+<script src="script2.js"></script>
+
+
+
+</body>
